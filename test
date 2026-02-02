@@ -7735,35 +7735,8 @@ end
 
 ---Initialize the KeyHandler module.
 KeyHandling.init = LPH_NO_VIRTUALIZE(function()
-	local retries = 0
+	searchForKeyHandlerData()
 
-	while true do
-		-- If we're able to find all the data, break.
-		if searchForKeyHandlerData() then
-			break
-		end
-
-		-- Retry if we can't find the data.
-		Logger.warn(
-			"KeyHandler retry (%i attempts) with results (%s, %s)",
-			retries,
-			tostring(remoteTable),
-			tostring(randomTable)
-		)
-
-		retries = retries + 1
-
-		if retries >= 10 then
-			-- Warn.
-			Logger.warn("KeyHandler failed to initialize after 10 attempts.")
-
-			-- Error.
-			return error("Please report this message to the developers.")
-		end
-
-		-- Wait.
-		task.wait(0.5)
-	end
 end)
 
 ---Get remote from a specific remote name.
