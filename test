@@ -6230,6 +6230,7 @@ end;
 -- ENDS HERE THIS IS END OF REQUIRES
 
 print("finished requires")
+error("Reached here")
 
 local column1, column2 = unpack(library.columns);
 
