@@ -1,3 +1,5 @@
+error("bruh")
+
 local stringPattern = '%s(.)';
 local toCamelCase = function(text)
 	return string.lower(text):gsub(stringPattern, string.upper);
